@@ -1,1 +1,1 @@
-# xian-hs-snapshot
+# 西安核酸结果截图

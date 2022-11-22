@@ -2,10 +2,13 @@ package org.oldfather.xianhs.web
 
 import io.github.bonigarcia.wdm.WebDriverManager
 import mu.KotlinLogging
-import org.openqa.selenium.*
+import org.openqa.selenium.Dimension
+import org.openqa.selenium.JavascriptExecutor
+import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
 import org.openqa.selenium.support.ui.WebDriverWait
+
 import org.springframework.web.bind.annotation.*
 import ru.yandex.qatools.ashot.AShot
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies
