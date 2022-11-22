@@ -41,7 +41,7 @@ class ScreenShotController {
         chromeOptions.addArguments("--headless")
         chromeOptions.addArguments("disable-gpu")
         val driver = ChromeDriver(chromeOptions)
-        driver["https://yqpt.xa.gov.cn/nrt/resultQuery.html"]
+        driver["https://yqpt.xa.gov.cn/nrt/inquire.html"]
         val js = "localStorage.setItem('inquire-name', '${name}');" +
                 "localStorage.setItem('inquire-card', '${cardNo}');"
         WebDriverWait(driver, 300).until { d: WebDriver ->
@@ -50,7 +50,13 @@ class ScreenShotController {
             (d as JavascriptExecutor)
                 .executeScript("return document.readyState") == "complete"
         }
-        driver.navigate().refresh()
+        Thread.sleep(1000)
+        driver.navigate().to("https://yqpt.xa.gov.cn/nrt/resultQuery.html")
+        WebDriverWait(driver, 300).until { d: WebDriver ->
+            (d as JavascriptExecutor)
+                .executeScript("return document.readyState") == "complete"
+        }
+        Thread.sleep(1000)
         driver.executeScript(" document.documentElement.style.overflowY = 'hidden'")
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS)
         driver.manage().window().size = Dimension(375, 667)
